@@ -24,7 +24,7 @@
       "properties": {
         "elinElementInspector.format": {
           "type": "string",
-          "default": "$alias/$name_JP",
+          "default": "$name_JP",
           "description": "Element情報の表示フォーマット。$列名でCSVの任意の列を参照できます。"
         },
         "elinElementInspector.additionalTargets": {
