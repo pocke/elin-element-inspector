@@ -18,9 +18,14 @@ var val = Evalue(60);
 var val = Evalue(60 life);
 ```
 
+![Inline Decoration Example](img/example1.webp)
+![Condition Expression Example](img/example2.webp)
+
 ### Hover Information
 
 Hover over any numeric literal to see detailed Element information in a tooltip, including all available properties from the Element database.
+
+![Hover Information Example](img/example3.webp)
 
 ## Extension Settings
 
