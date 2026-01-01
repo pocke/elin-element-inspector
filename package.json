@@ -3,6 +3,11 @@
   "displayName": "Elin Element Inspector",
   "description": "It inspects Element ID for Elin game.",
   "version": "0.0.1",
+  "publisher": "pocke",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pocke/elin-element-inspector"
+  },
   "engines": {
     "vscode": "^1.107.0"
   },
@@ -72,6 +77,7 @@
     "@types/vscode": "^1.107.0",
     "@vscode/test-cli": "^0.0.12",
     "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.7.1",
     "eslint": "^9.39.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.48.1"
