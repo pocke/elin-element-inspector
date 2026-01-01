@@ -2,7 +2,7 @@
   "name": "elin-element-inspector",
   "displayName": "Elin Element Inspector",
   "description": "It inspects Element ID for Elin game.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "pocke",
   "repository": {
     "type": "git",
