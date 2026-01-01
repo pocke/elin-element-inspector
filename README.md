@@ -1,71 +1,56 @@
-# elin-element-inspector README
+# Elin Element Inspector
 
-This is the README for your extension "elin-element-inspector". After writing up a brief description, we recommend including the following sections.
+A VS Code extension that displays Element information for decompiled [Elin](https://store.steampowered.com/app/2135150/Elin/) [source code](https://github.com/Elin-Modding-Resources/Elin-Decompiled).
+
+In Elin's decompiled C# source code, Element IDs are represented as numeric literals. This extension helps you understand what each Element ID refers to by showing the Element's name and details.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+### Inline Decoration
 
-For example if there is an image subfolder under your extension project workspace:
+When a numeric literal appears as an argument to specific functions (like `Evalue`, `HasElement`, `ModExp`), the extension displays the Element name inline.
 
-\!\[feature X\]\(images/feature-x.png\)
+```csharp
+// Before: You see just a number
+var val = Evalue(60);
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+// After: Element name is shown inline
+var val = Evalue(60 life);
+```
 
-## Requirements
+### Hover Information
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+Hover over any numeric literal to see detailed Element information in a tooltip, including all available properties from the Element database.
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
 This extension contributes the following settings:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+| Setting | Default | Description |
+|---------|---------|-------------|
+| `elinElementInspector.format` | `$name_JP` | Display format for Element info. Use `$columnName` to reference CSV columns (e.g., `$alias/$name_JP`) |
+| `elinElementInspector.additionalTargets` | `[]` | Additional functions to detect Element IDs |
+| `elinElementInspector.enableInlineDecoration` | `true` | Enable inline decoration |
+| `elinElementInspector.enableHover` | `true` | Enable hover information |
 
-## Known Issues
+### Adding Custom Function Targets
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+You can add additional functions to detect Element IDs:
+
+```json
+{
+  "elinElementInspector.additionalTargets": [
+    { "function": "CustomFunction", "argIndex": 1 }
+  ]
+}
+```
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
+Initial release.
 
-Initial release of ...
+## License
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+MIT except data/elements.csv. The CSV file is extracted from Elin game.
