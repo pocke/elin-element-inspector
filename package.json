@@ -9,15 +9,54 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:csharp"
+  ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "elin-element-inspector.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "title": "Elin Element Inspector",
+      "properties": {
+        "elinElementInspector.format": {
+          "type": "string",
+          "default": "$alias/$name_JP",
+          "description": "Element情報の表示フォーマット。$列名でCSVの任意の列を参照できます。"
+        },
+        "elinElementInspector.additionalTargets": {
+          "type": "array",
+          "default": [],
+          "description": "追加でElement IDを検出する関数の設定",
+          "items": {
+            "type": "object",
+            "required": [
+              "function",
+              "argIndex"
+            ],
+            "properties": {
+              "function": {
+                "type": "string",
+                "description": "関数名"
+              },
+              "argIndex": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "引数位置（1から始まる）"
+              }
+            }
+          }
+        },
+        "elinElementInspector.enableInlineDecoration": {
+          "type": "boolean",
+          "default": true,
+          "description": "インライン装飾を有効にする"
+        },
+        "elinElementInspector.enableHover": {
+          "type": "boolean",
+          "default": true,
+          "description": "ホバー表示を有効にする"
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -28,13 +67,16 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.107.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
-    "typescript-eslint": "^8.48.1",
+    "@types/vscode": "^1.107.0",
+    "@vscode/test-cli": "^0.0.12",
+    "@vscode/test-electron": "^2.5.2",
     "eslint": "^9.39.1",
     "typescript": "^5.9.3",
-    "@vscode/test-cli": "^0.0.12",
-    "@vscode/test-electron": "^2.5.2"
+    "typescript-eslint": "^8.48.1"
+  },
+  "dependencies": {
+    "csv-parse": "^6.1.0"
   }
 }
