@@ -3,9 +3,27 @@ import { EEIConfig, FunctionTarget } from "./types";
 
 /** デフォルトの対象関数 */
 const DEFAULT_TARGETS: FunctionTarget[] = [
+  // Card.cs
   { function: "Evalue", argIndex: 1 },
   { function: "HasElement", argIndex: 1 },
+  { function: "HasGlobalElement", argIndex: 1 },
+  { function: "DamageHP", argIndex: 2 },
+
+  // ElementContainer.cs
   { function: "ModExp", argIndex: 1 },
+  { function: "Value", argIndex: 1 },
+  { function: "ValueWithoutLink", argIndex: 1 },
+  { function: "GetElement", argIndex: 1 },
+  { function: "GetOrCreateElement", argIndex: 1 },
+  { function: "ModBase", argIndex: 1 },
+
+  // AttackProcess.cs
+  { function: "ModExpAtk", argIndex: 1 },
+  { function: "ModExpDef", argIndex: 1 },
+
+  // Chara.cs
+  { function: "AddCooldown", argIndex: 1 },
+  { function: "HasCooldown", argIndex: 1 },
 ];
 
 /** デフォルトの表示フォーマット */
