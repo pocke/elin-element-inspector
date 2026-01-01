@@ -24,6 +24,9 @@ const DEFAULT_TARGETS: FunctionTarget[] = [
   // Chara.cs
   { function: "AddCooldown", argIndex: 1 },
   { function: "HasCooldown", argIndex: 1 },
+
+  // ELEMENT.cs
+  { function: "Element.Create", argIndex: 1 },
 ];
 
 /** デフォルトの表示フォーマット */
