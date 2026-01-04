@@ -95,10 +95,8 @@ export class ElementDecorationProvider {
     const results: MatchResult[] = [];
 
     for (const target of targets) {
-      // 関数呼び出しの開始を見つける正規表現
-      // オプショナルなレシーバ付き: (?:\w+\.)?FunctionName\s*\(
       const funcPattern = new RegExp(
-        `(?:\\w+\\.)?${this.escapeRegex(target.function)}\\s*\\(`,
+        `${this.escapeRegex(target.function)}\\s*\\(`,
         "g"
       );
 
